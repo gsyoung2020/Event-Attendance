@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Event, type: :model do
   subject do
-    Event.new(description: 'Sunday Service', start_time: '2021-07-17',
+    Event.new(description: 'Sunday Service', start_time: '2021-07-17', end_time: '2021-09-17',
               event_location: '234 Gebroni Road, Raleigh, NC 12345')
   end
   it 'is valid with valid attributes' do

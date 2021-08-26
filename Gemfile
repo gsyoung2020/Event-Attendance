@@ -15,12 +15,12 @@ gem 'sqlite3', '~> 1.4'
 gem 'puma', '~> 5.0'
 
 # Use SCSS for stylesheets
-gem 'devise_materialize', '~>1.2.0'
-gem 'jquery-rails'
 gem 'bootstrap', '~> 5.0.1'
-gem "bootstrap_form", ">= 4.0.0.alpha1"
+gem 'bootstrap_form', '>= 4.0.0.alpha1'
 gem 'devise' # gem 'devise-i18n'
 gem 'devise-bootstrapped', github: 'king601/devise-bootstrapped', branch: 'bootstrap4'
+gem 'devise_materialize', '~>1.2.0'
+gem 'jquery-rails'
 # gem 'devise_invitable'
 gem 'devise-bootstrap-form'
 gem 'recurring_select'
