@@ -17,10 +17,10 @@
 
 <p>
   <strong>Birthday:</strong>
-  <%= @member.birthday %>
+  <%= @member.birthday.strftime('%m-%d') %>
 </p>
 
 <p>
   <strong>Anniversary:</strong>
-  <%= @member.anniversary %>
+  <%= @member.anniversary.strftime('%m-%d') %>
 </p>

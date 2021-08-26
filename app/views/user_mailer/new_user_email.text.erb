@@ -4,7 +4,7 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <p>You got a new order from <%= @resource.email %>!</p>
+    <p>You got a new order from <%= @user.email %>!</p>
     <p>
     Order details<br>
     --------------------------
@@ -19,7 +19,4 @@
     </p>
     <p></p>
   </body>
-</html>
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+</html
