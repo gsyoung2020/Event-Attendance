@@ -5,6 +5,7 @@ class EventsController < ApplicationController
     before_action :set_event, only: [:show, :edit, :update, :destroy]
     layout 'event_layout'
 
+<<<<<<< Updated upstream
     # GET /events
     # GET /events.json
     def index
@@ -13,6 +14,19 @@ class EventsController < ApplicationController
         start_date = params.fetch(:event_date, Date.today).to_date
         @events = Event.where(event_date: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)        
     end
+=======
+  # GET /events
+  # GET /events.json
+  def index
+    # Scope your query to the dates being shown:
+    start_date = params.fetch(:start_time, Time.zone.now).to_date
+    end_date = params.fetch(:end_time, Time.zone.now).to_date
+    @events = Event.where(start_time: start_date.beginning_of_month.beginning_of_week..end_date.end_of_month.end_of_week)
+    @recurring_events = @events.flat_map do |e|
+      e.calendar_events(params.fetch(start_date, Time.zone.now).to_date)
+    end
+  end
+>>>>>>> Stashed changes
 
     # GET /events/1
     # GET /events/1.json
@@ -70,22 +84,21 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
-    private
-        # Use callbacks to share common setup or constraints between actions.
-        def set_event
-            @event = Event.find(params[:id])
-        end
-  
-        # Only allow a list of trusted parameters through.
-        def event_params
-            params.require(:event).permit(:description, :event_date, :event_location, member_ids: [])
-        end
-  
-      def catch_not_found(e)
-        Rails.logger.debug("We had a not found exception.")
-        flash.alert = e.to_s
-        redirect_to events_path
-      end 
+  # Use callbacks to share common setup or constraints between actions.
+  def set_event
+    @event = Event.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def event_params
+    params.require(:event).permit(:description, :start_time, :end_time, :event_location, member_ids: [])
+  end
+
+  def catch_not_found(e)
+    Rails.logger.debug('We had a not found exception.')
+    flash.alert = e.to_s
+    redirect_to events_path
+  end
 
   def catch_not_found(e)
     Rails.logger.debug('We had a not found exception.')

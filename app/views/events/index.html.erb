@@ -9,13 +9,13 @@
     </div>
 
     <div class='row'>
-        <%= month_calendar(events: @events) do |date, events| %>
+        <%= month_calendar(attribute: :start_time, end_attribute: :end_time, events: @recurring_events) do |date, events| %>
             <%= date.day %>
         
             <% events.each do |event| %>
-            <div>
-            <%= link_to event.description, event_path(id: event.id) %>
-            </div>
+                <div>
+                    <%= link_to event.description, event_path(id: event.id) %>
+                </div>
             <% end %>
         <% end %>
     </div>

@@ -23,8 +23,9 @@ gem 'devise' # gem 'devise-i18n'
 gem 'devise-bootstrapped', github: 'king601/devise-bootstrapped', branch: 'bootstrap4'
 # gem 'devise_invitable'
 gem 'devise-bootstrap-form'
-gem "simple_form"
-gem "simple_calendar", "~> 2.4"
+gem 'recurring_select'
+gem 'simple_calendar', '~> 2.4'
+gem 'simple_form'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
