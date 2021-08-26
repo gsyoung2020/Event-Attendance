@@ -2,7 +2,7 @@
 
 <h1>Members</h1>
 
-<table>
+<table class='text-center'>
   <thead>
     <tr>
       <th>Full Name</th>
@@ -18,8 +18,8 @@
       <tr>
         <td><%= member.full_name %></td>
         <td><%= member.phone %></td>
-        <td><%= member.birthday %></td>
-        <td><%= member.anniversary %></td>
+        <td><%= member.birthday.strftime('%m-%d') %></td>
+        <td><%= member.anniversary.strftime('%m-%d') %></td>
         <td><%= link_to 'Show', member %></td>
         <td><%= link_to 'Edit', edit_member_path(member) %></td>
         <td><%= link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>

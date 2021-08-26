@@ -12,4 +12,8 @@ class Member < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def date_convert
+    strftime('%m-%d')
+  end
 end
