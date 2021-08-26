@@ -13,9 +13,21 @@
             <%= date.day %>
         
             <% events.each do |event| %>
-                <div>
-                    <%= link_to event.description, event_path(id: event.id) %>
-                </div>
+                <% if event.frequency === 'Daily' %>
+                    <div>
+                        <%= link_to event.description, event_path(id: event.id), class: 'text-decoration-none text-success' %>
+                    </div>
+                <% end %>
+                <% if event.frequency === 'Weekly' %>
+                    <div>
+                        <%= link_to event.description, event_path(id: event.id), class: 'text-decoration-none text-info' %>
+                    </div>
+                <% end %>
+                <% if event.frequency === 'Monthly' || event.frequency === 'Annually' %>
+                    <div>
+                        <%= link_to event.description, event_path(id: event.id), class: 'text-decoration-none text-warning' %>
+                    </div>
+                <% end %>
             <% end %>
         <% end %>
     </div>
