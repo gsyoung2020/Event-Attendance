@@ -25,7 +25,7 @@
                 <% end %>
                 <% if event.frequency === 'Monthly' || event.frequency === 'Annually' %>
                     <div>
-                        <%= link_to event.description, event_path(id: event.id), class: 'text-decoration-none text-warning' %>
+                        <%= link_to event.description, event_path(id: event.id), class: 'text-decoration-none text-primary' %>
                     </div>
                 <% end %>
             <% end %>
