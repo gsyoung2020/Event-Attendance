@@ -14,6 +14,7 @@ class EventsController < ApplicationController
     @events = Event.where(start_time: start_date.beginning_of_month.beginning_of_week..end_date.end_of_month.end_of_week)
     @recurring_events = @events.flat_map do |e|
       e.calendar_events(params.fetch(start_date, Time.zone.now).to_date)
+    end
   end
 
   # GET /events/1

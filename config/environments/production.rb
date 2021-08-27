@@ -121,16 +121,16 @@ Rails.application.configure do
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
   config.action_mailer.delivery_method = :smtp
-  host = 'localhost:3000' #replace with your own url
-  config.action_mailer.default_url_options = { :host => 'localhost:3000', protocol: 'http' }
+  host = 'localhost:3000' # replace with your own url
+  config.action_mailer.default_url_options = { host: 'localhost:3000', protocol: 'http' }
 
-# SMTP settings for gmail
-config.action_mailer.smtp_settings = {
-  :address              => "smtp-relay.gmail.com",
-  :port                 => 587,
-  :user_name            => 'eattendace@gmail.com',
-  :password             => 'eivqkewzeycqqhwg',
-  :authentication       => "plain",
-  :enable_starttls_auto => true
-}
+  # SMTP settings for gmail
+  config.action_mailer.smtp_settings = {
+    address: 'smtp-relay.gmail.com',
+    port: 587,
+    user_name: 'eattendace@gmail.com',
+    password: 'eivqkewzeycqqhwg',
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
 end

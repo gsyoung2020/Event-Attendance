@@ -3,7 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe 'Events', type: :request do
-  describe 'GET /index' do
-    pending "add some examples (or delete) #{__FILE__}"
+  describe 'get events_path' do
+    it 'renders the index view', focus: true do
+      FactoryBot.create_list(:event, 10)
+      get events_path
+      expect(response).to render_template(:index)
+    end
   end
 end
