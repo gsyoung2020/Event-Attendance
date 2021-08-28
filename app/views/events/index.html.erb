@@ -9,27 +9,7 @@
     </div>
 
     <div class='row'>
-        <%= month_calendar(attribute: :start_time, end_attribute: :end_time, events: @recurring_events) do |date, events| %>
-            <%= date.day %>
-        
-            <% events.each do |event| %>
-                <% if event.frequency === 'Daily' %>
-                    <div>
-                        <%= link_to event.description, event_path(id: event.id), class: 'text-decoration-none text-success' %>
-                    </div>
-                <% end %>
-                <% if event.frequency === 'Weekly' %>
-                    <div>
-                        <%= link_to event.description, event_path(id: event.id), class: 'text-decoration-none text-info' %>
-                    </div>
-                <% end %>
-                <% if event.frequency === 'Monthly' || event.frequency === 'Annually' %>
-                    <div>
-                        <%= link_to event.description, event_path(id: event.id), class: 'text-decoration-none text-primary' %>
-                    </div>
-                <% end %>
-            <% end %>
-        <% end %>
+        <%= render partial: 'calendar', locals: { events: @recurring_events } %>
     </div>
 
     <div class='row pb-1'>
