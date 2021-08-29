@@ -6,7 +6,7 @@ require 'simple_calendar/calendar'
 require 'support/fake_event'
 require 'support/view_context'
 
-describe SimpleCalendar::Calendar, focus: true do
+describe SimpleCalendar::Calendar do
   let(:calendar) { SimpleCalendar::Calendar.new(ViewContext.new) }
 
   it 'renders a partial with the same name as the class' do
@@ -29,7 +29,8 @@ describe SimpleCalendar::Calendar, focus: true do
     end
 
     it 'allows to override the default partial' do
-      expect(SimpleCalendar::Calendar.new(ViewContext.new, partial: 'simple_calendar/custom_calendar').send(:partial_name)).to eq('simple_calendar/custom_calendar')
+      expect(SimpleCalendar::Calendar.new(ViewContext.new,
+                                          partial: 'simple_calendar/custom_calendar').send(:partial_name)).to eq('simple_calendar/custom_calendar')
     end
   end
 
