@@ -78,7 +78,7 @@ RSpec.configure do |config|
   #   # is tagged with `:focus`, all examples get run. RSpec also provides
   #   # aliases for `it`, `describe`, and `context` that include `:focus`
   #   # metadata: `fit`, `fdescribe` and `fcontext`, respectively.
-  config.filter_run_when_matching :focus
+  # config.filter_run_when_matching :focus
   #
   #   # Allows RSpec to persist some state between runs in order to support
   #   # the `--only-failures` and `--next-failure` CLI options. We recommend
@@ -127,41 +127,41 @@ RSpec.configure do |config|
 
   Dir["#{File.dirname(__FILE__)}/support/**/*"].sort.each { |f| require f }
 
-  config.warnings = true
+  # config.warnings = true
 
-  config.include WarningHelpers
+  # config.include WarningHelpers
 
-  config.before :each do |example|
-    if example.metadata[:requires_active_support] && !defined?(ActiveSupport)
-      raise 'ActiveSupport required but not present'
-    end
-  end
+  # config.before :each do |example|
+  #   if example.metadata[:requires_active_support] && !defined?(ActiveSupport)
+  #     raise 'ActiveSupport required but not present'
+  #   end
+  # end
 
-  config.around :each, system_time_zone: true do |example|
-    orig_zone = ENV['TZ']
-    ENV['TZ'] = example.metadata[:system_time_zone]
-    example.run
-    ENV['TZ'] = orig_zone
-  end
+  # config.around :each, system_time_zone: true do |example|
+  #   orig_zone = ENV['TZ']
+  #   ENV['TZ'] = example.metadata[:system_time_zone]
+  #   example.run
+  #   ENV['TZ'] = orig_zone
+  # end
 
-  config.around :each, locale: true do |example|
-    orig_locale = I18n.locale
-    I18n.locale = example.metadata[:locale]
-    example.run
-    I18n.locale = orig_locale
-  end
+  # config.around :each, locale: true do |example|
+  #   orig_locale = I18n.locale
+  #   I18n.locale = example.metadata[:locale]
+  #   example.run
+  #   I18n.locale = orig_locale
+  # end
 
-  config.around :each, expect_warnings: true do |example|
-    capture_warnings do
-      example.run
-    end
-  end
+  # config.around :each, expect_warnings: true do |example|
+  #   capture_warnings do
+  #     example.run
+  #   end
+  # end
 
-  config.around :each do |example|
-    Timeout.timeout(example.metadata.fetch(:timeout, 1)) do
-      example.run
-    end
-  end
+  # config.around :each do |example|
+  #   Timeout.timeout(example.metadata.fetch(:timeout, 1)) do
+  #     example.run
+  #   end
+  # end
 
   config.before(:all) do
     if self.respond_to? :visit

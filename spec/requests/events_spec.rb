@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Events', type: :request, focus: true do
+RSpec.describe 'Events', type: :request do
   describe 'get events_path' do
     it 'renders the index view' do
       FactoryBot.create_list(:event, 10)
