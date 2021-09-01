@@ -12,13 +12,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20_210_827_131_512) do
+=======
+ActiveRecord::Schema.define(version: 20_210_821_031_149) do
+>>>>>>> parent of 4e67cbc... <database>removed unnecessary "start" and "end" columns because event model already has "start_time" and "end_time" columns
   create_table 'events', force: :cascade do |t|
     t.string 'description'
     t.string 'event_location'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.string 'frequency'
+<<<<<<< HEAD
+=======
+    t.datetime 'start'
+    t.datetime 'end'
+>>>>>>> parent of 4e67cbc... <database>removed unnecessary "start" and "end" columns because event model already has "start_time" and "end_time" columns
     t.datetime 'start_time'
     t.datetime 'end_time'
   end
