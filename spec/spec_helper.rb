@@ -164,7 +164,7 @@ RSpec.configure do |config|
   # end
 
   config.before(:all) do
-    if self.respond_to? :visit
+    if respond_to? :visit
       visit '/assets/application.css'
       visit '/assets/application.js'
       visit '/factories'
