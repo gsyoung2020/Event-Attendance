@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class MembersController < ApplicationController
-    rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
-    before_action :set_member, only: [:show, :edit, :update, :destroy]
-    layout 'event_layout'
+  rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
+  before_action :set_member, only: %i[show edit update destroy]
+  layout 'event_layout'
 
   # GET /members
   # GET /members.json
@@ -51,11 +51,11 @@ class MembersController < ApplicationController
   # DELETE /customers/1
   # DELETE /customers/1.json
   def destroy
-      @member.destroy
-      respond_to do |format|
+    @member.destroy
+    respond_to do |format|
       format.html { redirect_to members_url, notice: 'Member was successfully destroyed.' }
       format.json { head :no_content }
-      end
+    end
   end
 
   private

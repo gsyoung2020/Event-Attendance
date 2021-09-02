@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class UserMailerTest < ActionMailer::TestCase
-  test "new user email" do
+  test 'new user email' do
     # Set up an user based on the fixture
     user = users(:one)
 
@@ -16,7 +18,7 @@ class UserMailerTest < ActionMailer::TestCase
     # Check the contents are correct
     assert_equal ['eattendace@gmail.com'], email.from
     assert_equal ['eattendace@gmail.com'], email.to
-    assert_equal "You got a new order!", email.subject
+    assert_equal 'You got a new order!', email.subject
     assert_match user.email, email.html_part.body.encoded
     assert_match user.email, email.text_part.body.encoded
   end

@@ -8,10 +8,13 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    # @events = Event.all
     # Scope your query to the dates being shown:
-    start_date = params.fetch(:event_date, Date.today).to_date
-    @events = Event.where(event_date: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
+    start_date = params.fetch(:start_time, Time.zone.now).to_date
+    end_date = params.fetch(:end_time, Time.zone.now).to_date
+    @events = Event.where(start_time: start_date.beginning_of_month.beginning_of_week..end_date.end_of_month.end_of_week)
+    @recurring_events = @events.flat_map do |e|
+      e.calendar_events(params.fetch(start_date, Time.zone.now).to_date)
+    end
   end
 
   # GET /events/1
@@ -77,7 +80,7 @@ class EventsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def event_params
-    params.require(:event).permit(:description, :event_date, :event_location, member_ids: [])
+    params.require(:event).permit(:description, :start_time, :end_time, :frequency, :event_location, member_ids: [])
   end
 
   def catch_not_found(e)
