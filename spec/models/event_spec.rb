@@ -23,7 +23,7 @@ RSpec.describe Event, type: :model do
     it 'should have an associated schedule' do
       expect(subject.schedule).to_not be_nil
     end
-    it 'should return a hash' do
+    it 'should return a IceCube::Schedule object' do
       expect(subject.schedule).to be_an_instance_of(IceCube::Schedule)
     end
     it 'should have a start time' do
