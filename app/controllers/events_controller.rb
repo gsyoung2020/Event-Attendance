@@ -66,6 +66,18 @@ class EventsController < ApplicationController
     end
   end
 
+  def delete_image_attachment
+    @image = ActiveStorage::Attachment.find(params[:id])
+    @event = Event.find(params[:id])
+    if @image.purge
+      flash.notice = 'The event record was updated successfully.'
+      redirect_to @event
+    else
+      flash.now.alert = @event.errors.full_messages.to_sentence
+      render :edit
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -80,7 +92,7 @@ class EventsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def event_params
-    params.require(:event).permit(:description, :start_time, :end_time, :frequency, :event_location, member_ids: [])
+    params.require(:event).permit(:description, :start_time, :end_time, :frequency, :image, :event_location, member_ids: [])
   end
 
   def catch_not_found(e)

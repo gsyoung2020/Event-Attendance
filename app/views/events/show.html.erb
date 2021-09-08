@@ -15,16 +15,18 @@
   <%= @event.event_location %>
 </p>
 
-<%= render 'form', event: @event %>
+<% if @event.image.attached? %>
+      <image src="<%=(url_for(@event.image))%>">
+<% end %>
+
+<%# [this is commented out] render 'form', event: @event %> 
 
 <% if @event.members.any? %>
     <% @members.each do |member| %>
         <p> Member: <%= member.full_name %> </p>
     <% end %>
-<% end %>
+<% end %> 
 
-
-
-<%= link_to 'Back', events_path %>
+<%= link_to 'Back', events_path %> |
 <td><%= link_to 'Edit', edit_event_path(@event) %></td>
-<td><%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<td><%# link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?' } %></td>

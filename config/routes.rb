@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#about'
   resources :members
-  resources :events
+  resources :events do 
+     member do
+      delete :delete_image_attachment
+  end
+end
 
   get 'pages/about', to: 'pages#about'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

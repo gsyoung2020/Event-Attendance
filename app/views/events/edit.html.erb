@@ -3,4 +3,8 @@
 <%= render 'form', event: @event %>
 
 <%= link_to 'Show', @event %> |
-<%= link_to 'Back', event_path(@event) %>
+<%= link_to 'Back', event_path(@event) %> |
+<%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?' } %></td> |
+<% if @event.image.attached? %>
+    <%= link_to 'Remove Image', delete_image_attachment_event_url(@event.image.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>

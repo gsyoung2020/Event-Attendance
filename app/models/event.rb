@@ -5,10 +5,12 @@ require 'active_support/time'
 
 class Event < ApplicationRecord
   has_and_belongs_to_many :members
+  has_one_attached :image
   validates :description, presence: true
   validates :start_time, presence: true
   validates :end_time, presence: true
   validates :event_location, presence: true
+  
 
   def schedule(start = Time.zone.now.to_date)
     IceCube::Schedule.new(start) do |s|
