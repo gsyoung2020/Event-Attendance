@@ -6,7 +6,7 @@ RSpec.describe "DeviseUsers", type: :request do
         user = FactoryBot.create(:user)
         expect(user.save).to eq true
         expect(user.email).to eq(user.email)
-        expect { post :create, :new_user_email }.to change { ActionMailer::Base.deliveries.count }.by(1)
+        expect( ActionMailer::Base.deliveries.count ).to eq(1)
     end
   end
 end
