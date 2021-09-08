@@ -15,14 +15,24 @@
       <%= f.label :description %>
       <%= f.text_field :description %>
     </div>
-  
+
     <div class="field">
-      <%= f.label :event_date %>
-      <%= f.datetime_select(:event_date, order: [:hour, :month, :day, :year], start_year: 2021) %>
+      <%= f.label :start_time %>
+      <%= f.datetime_select(:start_time, order: [:month, :day, :year], start_year: 2021) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :end_time %>
+      <%= f.datetime_select(:end_time, order: [:month, :day, :year], start_year: 2021) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :frequency %>
+      <%= f.select(:frequency, [['Daily'],['Weekly'],['Monthly'],['Annually']]) %>
     </div>
   
     <div class="field">
-      <%= f.label :event_address %>
+      <%= f.label :event_location %>
       <%= f.text_field :event_location %>
     </div>
   

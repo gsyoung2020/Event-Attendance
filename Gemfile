@@ -23,6 +23,7 @@ gem 'devise_materialize', '~>1.2.0'
 gem 'jquery-rails'
 # gem 'devise_invitable'
 gem 'devise-bootstrap-form'
+gem 'recurring_select'
 gem 'simple_calendar', '~> 2.4'
 gem 'simple_form'
 

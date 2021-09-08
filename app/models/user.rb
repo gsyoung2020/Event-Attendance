@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   after_create :new_user_email
-  def new_user_email 
+  def new_user_email
     UserMailer.with(user: self).new_user_email.deliver_now
   end
 end

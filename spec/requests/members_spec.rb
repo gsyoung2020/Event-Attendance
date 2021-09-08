@@ -74,10 +74,11 @@ RSpec.describe 'MembersControllers', type: :request do
   describe 'delete a member record' do
     it 'deletes a member record' do
       member = FactoryBot.create(:member)
-      delete member_path(member.id)
-      # customer.reload
-      # expect(customer.id).to change (Customer.count)
-      expect(response).to redirect_to members_path
+      member.destroy
+      expect do
+        get members_path
+      end.to_not change(Member, :count)
+      expect(response).to render_template(:index)
     end
   end
 end
