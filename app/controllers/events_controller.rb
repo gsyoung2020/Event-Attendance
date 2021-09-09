@@ -68,22 +68,10 @@ class EventsController < ApplicationController
 
   def delete_image_attachment
     @image = ActiveStorage::Attachment.find(params[:id])
-    @event = Event.find(params[:id])
-    if @image.purge
-      flash.notice = 'The event record was updated successfully.'
-      redirect_to @event
-    else
-      flash.now.alert = @event.errors.full_messages.to_sentence
-      render :edit
-    end
+    @image.purge
   end
 
   private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_event
-    @event = Event.find(params[:id])
-  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_event
