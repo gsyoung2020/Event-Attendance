@@ -1,15 +1,17 @@
 <div class="container-fluid mb-4 gy-4 p-5 pt-1">
 
-    <div class='row pt-0'>
-        <%= link_to 'Members', members_path %>
-    </div>
-
     <div class='row'>
         <h1>Events</h1>
     </div>
 
     <div class='row'>
         <%= render partial: 'calendar', locals: { events: @recurring_events } %>
+    </div>
+
+    <div class='row'>
+        <% @events.each do |event| %>
+            <%= link_to event.description.to_s, event_path(event.id), method: :get, class: 'link' %>
+        <% end %>
     </div>
 
     <div class='row pb-1'>
