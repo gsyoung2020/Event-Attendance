@@ -9,6 +9,14 @@ class MembersController < ApplicationController
   # GET /members.json
   def index
     @members = Member.all
+    respond_to do |format|
+      format.xlsx {
+        response.headers[
+          'Content-Disposition'
+        ] = "attachment; filename=members.xlsx"
+      }
+      format.html { render :index }
+    end
   end
 
   # GET /members/1

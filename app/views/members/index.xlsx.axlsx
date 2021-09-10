@@ -1,0 +1,21 @@
+wb = xlsx_package.workbook
+
+wb.styles do |style|
+    project_heading = style.add_style(b: true, sz: 14)
+    heading = style.add_style(b: true)
+
+wb.add_worksheet(name: "Members") do |sheet|
+    # Add a title row   
+    sheet.add_row ["All Members"], style: project_heading
+    # Add the date this was downloaded
+    sheet.add_row ["Downloaded at", Time.now.strftime("%b %-d, %Y")]
+    # Add a blank row
+    sheet.add_row []
+    # Create the header row
+    sheet.add_row [ "First Name", "Last Name", "Phone Number", "Birthday", "Anniversary"], style: heading
+    # Create entries for each item
+    @members.each do |member|
+        sheet.add_row [member.first_name, member.last_name, member.phone, member.birthday, member.anniversary]
+    end
+  end
+end
