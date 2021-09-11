@@ -22,11 +22,11 @@ gem 'devise-bootstrapped', github: 'king601/devise-bootstrapped', branch: 'boots
 gem 'devise_materialize', '~>1.2.0'
 gem 'jquery-rails'
 # gem 'devise_invitable'
+gem 'blazer'
 gem 'devise-bootstrap-form'
 gem 'recurring_select'
 gem 'simple_calendar', '~> 2.4'
 gem 'simple_form'
-gem 'blazer'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
