@@ -9,4 +9,11 @@ namespace :export do
                             end.to_s.gsub(/[{}]/, '')})"
     end
   end
+  task seeds_format: :environment do
+    Event.order(:id).all.each do |event|
+      puts "Event.create(#{event.serializable_hash.delete_if do |key, _value|
+                             %w[created_at updated_at id].include?(key)
+                           end.to_s.gsub(/[{}]/, '')})"
+    end
+  end
 end
