@@ -51,6 +51,9 @@ gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
 gem 'axlsx_rails'
 gem 'caxlsx_rails'
 
+# Importing Data to Rails Tutorial: [https://medium.com/@JasonCodes/ruby-on-rails-importing-from-excel-1504fd99a35e]
+gem "roo", "~> 2.8.3"
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 

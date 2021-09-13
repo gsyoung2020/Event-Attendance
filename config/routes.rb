@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#about'
   resources :members
+  resources :members_imports, only: [:new, :create]
   resources :events do 
      member do
       delete :delete_image_attachment
@@ -19,6 +20,8 @@ end
   #   For example:
 
   #     Rails.application.routes.draw do
+  get 'members_imports/new'
+  get 'members_imports/create'
   #       devise_for :users, controllers: {
   #         sessions: 'users/sessions'
   #       }
