@@ -41,3 +41,7 @@ yarn-debug.log*
 
 # Ignore rspec-status file
 .rspec_status
+
+# Ignore db seed file
+/db/*seeds.rb
+db/seeds.rb

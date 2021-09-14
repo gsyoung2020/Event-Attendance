@@ -133,4 +133,7 @@ Rails.application.configure do
     authentication: 'plain',
     enable_starttls_auto: true
   }
+
+  # Host set for blazer emails to work
+  config.action_mailer.default_url_options = { host: 'blazer.dokkuapp.com' }
 end

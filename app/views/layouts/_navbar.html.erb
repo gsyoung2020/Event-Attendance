@@ -7,11 +7,17 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav" align="right">
           <% if user_signed_in? %>
-              <li class="nav-item">
-                <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-              </li>
               <li class='nav-item'>
                   <%= link_to 'Events', events_path, method: :get, class: 'nav-link' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Members', members_path, method: :get, class: 'nav-link' %>
+              </li>
+              <li class='nav-item'>
+                <%= link_to 'Reports', 'http://localhost:3000/blazer/dashboards/1-member-attendees-per-event', method: :get, class: 'nav-link' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
               </li>
           <% else %>
               <li class="nav-item">
