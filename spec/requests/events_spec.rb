@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require 'ice_cube'
+require 'active_support/time'
 
 RSpec.describe 'Events', type: :request do
   describe 'get events_path' do

@@ -120,6 +120,7 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
+<<<<<<< HEAD
   config.action_mailer.delivery_method = :test
   host = 'localhost:3000' #replace with your own url
   config.action_mailer.default_url_options = { :host => 'localhost:3000', protocol: 'http' }
@@ -133,4 +134,22 @@ config.action_mailer.smtp_settings = {
   :authentication       => "plain",
   :enable_starttls_auto => true
 }
+=======
+  config.action_mailer.delivery_method = :smtp
+  host = 'localhost:3000' # replace with your own url
+  config.action_mailer.default_url_options = { host: 'localhost:3000', protocol: 'http' }
+
+  # SMTP settings for gmail
+  config.action_mailer.smtp_settings = {
+    address: 'smtp-relay.gmail.com',
+    port: 587,
+    user_name: 'eattendace@gmail.com',
+    password: 'eivqkewzeycqqhwg',
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
+
+  # Host set for blazer emails to work
+  config.action_mailer.default_url_options = { host: 'blazer.dokkuapp.com' }
+>>>>>>> eb588e311829bc5678524d1464c92d77a2474c8e
 end

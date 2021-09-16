@@ -1,5 +1,4 @@
 class MembersImport
-    include ActiveRecord::Model
     require 'roo'
   
     attr_accessor :file
