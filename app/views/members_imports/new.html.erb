@@ -13,6 +13,7 @@ Note: Only import spreadsheets that were previously downloaded from this
 
 <h5>Select File</h5>
 <%= form_for @members_import do |f| %>
+  <%= f.input_name :first_name %>
   <% if @members_import.errors.any? %>
     <%= pluralize(@members_import.errors.count, "error") %> prevented us from
     importing your spreadsheet. Please update your spreadsheet and try agin.

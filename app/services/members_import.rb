@@ -25,7 +25,7 @@ class MembersImport
       header = spreadsheet.row(5)
       (6..spreadsheet.last_row).map do |i|
         row = Hash[[header, spreadsheet.row(i)].transpose]
-        memeber = Member.find_by_id(row["id"]) || Member.new
+        member = Member.find_by_id(row["id"]) || Member.new
         member.attributes = row.to_hash
         member
       end
@@ -49,3 +49,5 @@ class MembersImport
       end
     end
 end
+
+
