@@ -7,8 +7,12 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: 'pages#about'
-  resources :members
-  resources :members_imports, only: [:new, :create]
+  resources :members do
+    member do
+      get :upload
+    end
+  end
+  # resources :members_imports, only: [:new, :create]
   resources :events do 
      member do
       delete :delete_image_attachment
